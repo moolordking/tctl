@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.TCTL.consign" version="1.0" xmlns="http://www.w3.org/ns/widgets">
-  <name>Tone Keybard</name>
+  <name>TCTL</name>
   <description>A keyboard which can play any frequency (pretty much)</description>
   <author email="FBEmail2007@gmail.com" href="http://www.tonekey.com">Malachi Bance</author>
   <preference name="phonegap-version" value="cli-6.5.0" />
