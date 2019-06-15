@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Consign To Limbo</title>
+    <style>
+    @font-face { font-family: Ghastly Panic; src: url('Ghastly Panic.ttf'); }
+	@font-face { font-family: Living Hell; src: url('Living Hell.ttf'); }
+	@font-face { font-family: Bohemian Typewriter; src: url('Bohemian Typewriter.ttf'); }
+    @font-face { font-family: Moms_typewriter; src: url('Moms_typewriter.ttf'); }
+        body {
+            background-color: black;
+            animation: flash 5s;
+            color: white;
+            font-size: 50px;
+            transform: scale(1);
+            overflow: hidden;
+        }
+        
+        @keyframes flash {
+            0%{background-color: #2b0000;color: #2b0000;transform: scale(2);}
+        }
+        
+        #gameovertext {
+            text-align: center;
+            font-family: Moms_typewriter;
+        }
+        
+        #gameovertextprop {
+            text-align: center;
+            font-family: Moms_typewriter;
+            font-size: 30px;
+            animation: waitnow 3s;
+            animation-delay: 2s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+        
+        @keyframes waitnow {
+            0%{opacity:0}
+            100%{opacity:1}
+        }
+    </style>
+</head>
+<body>
+    <div id="gameovertext"><br><br><br>Game Over</div>
+    <div id="gameovertextprop"><br><br></div>
+    <script>
+        document.getElementById('gameovertextprop').innerHTML = localStorage.deathnote;
+    </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<html>
+<head>
+	<title>To Consign To Limbo</title>
+	<style>
+	@font-face { font-family: Ghastly Panic; src: url('Ghastly Panic.ttf'); }
+	@font-face { font-family: Living Hell; src: url('Living Hell.ttf'); }
+	@font-face { font-family: Bohemian Typewriter; src: url('Bohemian Typewriter.ttf'); }
+	@font-face { font-family: SpecialElite; src: url('SpecialElite.ttf'); }
+	@font-face { font-family: Moms_typewriter; src: url('Moms_typewriter.ttf'); }
+
+	body {
+		background-color: black;
+		overflow: hidden;
+	}
+
+	#container-text {
+		padding: 25vh 0;
+		color: white;
+		font-family: Moms_typewriter;
+		font-size: 30px;
+		opacity: 1;
+		animation: fadein 5s;
+		overflow: hidden;
+	}
+
+	@keyframes fadein {
+		0%{opacity: 0;}
+		100%{opacity: 0.8;}
+	}
+
+	@keyframes fadeinslow {
+		0%{opacity: 0;}
+		70%{opacity: 0;}
+		100%{opacity: 0.8;}
+	}
+
+	#choice1 {
+		background-color: white;
+		width: 48vw;
+		height: 22vh;
+		position: absolute;
+		margin-top: 76vh;
+		font-family: Moms_typewriter;
+		opacity: 1;
+		animation-fill-mode: forwards;
+		font-size: 20px;
+		display: none;
+		box-shadow: 0px 0px 40px black inset;
+		cursor: pointer;
+	}
+
+	#choice2 {
+		background-color: white;
+		width: 48vw;
+		height: 22vh;
+		position: absolute;
+		margin-top: 76vh;
+		margin-left: 49vw;
+		font-family: Moms_typewriter;
+		opacity: 1;
+		animation-fill-mode: forwards;
+		font-size: 20px;
+		display: none;
+		box-shadow: 0px 0px 40px black inset;
+		cursor: pointer;
+	}
+
+	</style>
+</head>
+<body>
+
+<center>
+	<div id="choice1" onclick="choice1button()"><br><br>Run</div>
+	<div id="choice2" onclick="choice2button()"><br><br>Linger</div>
+	<div id="container-text">
+	</div>
+</center>
+
+
+<script>
+	setInterval(loop, 1000/60);
+	var gametext = document.getElementById("container-text");
+	var i = 0;
+	var choice = 0;
+	var txt = '---- Chapter l ---- “Deep into that darkness peering, long I stood there, wondering, fearing, doubting, dreaming dreams no mortal ever dared to dream before.”';
+	var speed = 80;
+	var typesound;
+	var typesound2;
+	var typesound3;
+	var typesound4;
+	var hiddeny = true;
+	var numbum = 0;
+	localStorage.deathnote = '<br>You Died A Horrible Death';
+	typesound = new sound("typing.wav");
+	typesound2 = new sound("typing.wav");
+	typesound3 = new sound("typing.wav");
+	typesound4 = new sound("typing.wav");
+	var thingone = "<br><br>Run";
+	var thingtwo = "<br><br>Linger";
+	var plotChoice;
+	
+	typeWriter();
+	setTimeout(function(){refreshtype(); txt = '.I am shrouded in an endless expanse of Darkness, It feels like home.'; setTimeout(function(){hiddeny = false;},6000)},16000)
+	
+
+
+
+	function loop() {
+		if (hiddeny == true) {
+			if (numbum > 0) {
+				numbum -= 0.07;
+				document.getElementById("choice1").style.opacity = numbum;
+				document.getElementById("choice2").style.opacity = numbum;
+			}
+			if (numbum > -1 || numbum < 0.1) {
+			document.getElementById("choice1").style.display = "none";
+			document.getElementById("choice2").style.display = "none";
+			document.getElementById("choice1").style.top = "10000px";
+			document.getElementById("choice2").style.top = "10000px";
+			}
+		}
+		else {
+			if (numbum < 1) {
+				numby = 0;
+				numbum += 0.01;
+				document.getElementById("choice1").style.opacity = numbum;
+				document.getElementById("choice2").style.opacity = numbum;
+			}
+			document.getElementById("choice1").style.display = "block";
+			document.getElementById("choice2").style.display = "block";
+			document.getElementById("choice1").innerHTML = thingone;
+        	document.getElementById("choice2").innerHTML = thingtwo;
+        	document.getElementById("choice1").style.top = "5px";
+			document.getElementById("choice2").style.top = "5px";
+		}
+	}
+
+function refreshtype() {
+    i=0;typeWriter();gametext.innerHTML = ""
+}
+
+function typeWriter() {
+  if (i < txt.length) {
+    gametext.innerHTML += txt.charAt(i);
+    typesoundfunction();
+    i++;
+    setTimeout(typeWriter, speed);
+    speed = speed;
+  }
+}
+
+
+function typesoundfunction() {
+		typesound.play();
+		setTimeout(function() {typesound3.play();}, 32.5);
+}
+
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }    
+}
+
+function choice1button() {
+    if (choice == 0) {
+    	hiddeny = true;
+    	refreshtype(); txt = '.As i outstrech my leg, a primeval apprehension overruled my judgment.';
+    	setTimeout(function() {hiddeny = false; choice = 1;},6000)
+    	thingone = "<br><br>Try again";
+        thingtwo = "<br><br>Give in";
+    }
+
+    if (choice == 1) {
+    	hiddeny = true;
+    	refreshtype(); txt = '.A craggy voice reprimands me with unassailable pursuasion';
+    	setTimeout(function() {refreshtype(); txt = '.I feel like i am trapped in my own skin.';setTimeout(function() {hiddeny = false; choice = 3
+    		;}, 4000)},6000)
+    	thingone = "<br><br>Try again";
+        thingtwo = "<br><br>Give in";
+    }
+
+    if (choice == 2 || choice == 3) {
+        hiddeny = true;
+        refreshtype(); txt = '.I tried to turn my neck, something stopped me.';
+        setTimeout(function(){speed = 200;refreshtype(); txt = '.YOU WILL NOT RESIST'; gametext.style.color = "red"; gametext.style.fontSize = "50px";setTimeout(function(){speed = 80;refreshtype();txt = '.My thoughts are swirling around my head like a hurricane.'; gametext.style.color = "white"; gametext.style.fontSize = "30px"; setTimeout(function() {hiddeny = false; choice = 4;}, 4000); }, 5000)}, 4000);
+        thingone = "<br><br>Try again";
+        thingtwo = "<br><br>Give in";
+    }
+
+    if (choice == 4) {
+        hiddeny = true;
+        refreshtype(); txt = '.I once again outstrech my leg in anticipation, but this time nothing stops me.';
+        setTimeout(function(){speed = 200;refreshtype(); txt = '.IF YOU WISH'; gametext.style.color = "red"; gametext.style.fontSize = "50px";setTimeout(function(){speed = 80;refreshtype();txt = '.I deliberate my next move.'; gametext.style.color = "white"; gametext.style.fontSize = "30px"; setTimeout(function() {hiddeny = false; choice = 5;}, 3000);}, 3000)}, 8000);
+        thingone = "<br><br>Venture out";
+        thingtwo = "<br><br>Perish";
+    }
+
+    if (choice == 5) {
+    	hiddeny = true;
+    	refreshtype(); txt = '.The ground is soft and cold in front of me, all around me unearthy wispers explore my ears.';
+    	 setTimeout(function(){refreshtype(); txt = '.I feel like my own mind is deteriorating me.';}, 8000);
+    	 setTimeout(function(){choice = 10; plotChoice = 1;startup();}, 12000);
+    }
+
+    if (choice == 6) {
+    	hiddeny = true;
+    	refreshtype(); txt = '.Something in my subconscience is preventing me from moving.';
+    	setTimeout(function() {refreshtype(); txt = '.It is to late to escape.';setTimeout(function() {choice = 6; choice2button();
+    		;}, 4000)},7000)
+    	thingone = "<br><br>Try again";
+        thingtwo = "<br><br>Give in";
+    }
+}
+
+function choice2button() {
+    if (choice == 0) {
+        hiddeny = true;
+        refreshtype(); txt = '.I feel a chill go down my spine, the hairs on the back of my neck stand on end.';
+        setTimeout(function(){refreshtype(); txt = '.I sit and wonder when the pain is going to end.';setTimeout(function(){hiddeny = false; choice = 2;}, 4000)}, 8000);
+        thingone = "<br><br>Turn around";
+        thingtwo = "<br><br>Fall to your knees";
+    }
+
+    if (choice == 2 || choice == 1 || choice == 3) {
+    	hiddeny = true;
+    	refreshtype(); txt = '.As I kneel, the floor begins to crack and crumble beneath me, the very fabric of reality ripping.';
+    	setTimeout(function(){refreshtype(); txt = '.I Do not know the horrors that may live beyond my feeble existance.';setTimeout(function(){hiddeny = false; choice = 6;}, 5000);}, 10000);
+    	thingone = "<br><br>Try to escape";
+        thingtwo = "<br><br>Accept your fate";
+    }
+
+    if (choice == 5) {
+    	localStorage.deathnote = '<br>You were exhorted';
+		window.location.href = 'deathgame.html';
+    }
+
+    if (choice == 4 || choice == 6) {
+    	hiddeny = true;
+    	refreshtype(); txt = '.I am rapidly plummeting into the void as the cold ground breaks beneath me.';
+    	setTimeout(function(){refreshtype(); txt = '.A blinding light advances on me, tantalising me, before fizzling out into the abyss.';setTimeout(function(){choice = 10; PlotChoice = 2;startup();}, 8000);}, 8000);
+    }
+
+
+
+
+
+
+
+    if (choice == 10) {
+    	refreshtype();
+    	txt = '---- Chapter 2 ---- “Life, although it may only be an accumulation of anguish, is dear to me, and I will defend it.”';
+    }
+}
+
+
+function startup() {
+	choice1button();
+	choice2button();
+}
+
+
+//localStorage.deathnote = '<br>You ran off the edge of hell, thus perpetually stuck in the unknown.<br><br> :[';
+//window.location.href = 'deathgame.html';
+
+
+
+</script>
+</body>
+</html>

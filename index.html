@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>To Consign To Limbo</title>
+        <style>
+       @font-face { font-family: Ghastly Panic; src: url('Ghastly Panic.ttf'); }
+        	body {
+        		background-color: black;
+      			overflow: hidden;
+        	}
+
+        	#play-button {
+        		background-color: rgba(255,255,255);
+        		color: black;
+        		text-decoration: none;
+        		font-family: Impact;
+        		font-size: 50px;
+        		opacity: 0;
+        		border-radius: 25px;
+        		border: 10px solid white;
+        		animation: popup 0.4s;
+        		animation-delay: 1s;
+        		animation-fill-mode: forwards;
+        	}
+
+        	@keyframes popup {
+        		0% {opacity: 0;font-size: 0px;}
+        		30% {opacity: 0;}
+        		100% {opacity: 1;font-size: 50px;}
+        	}
+
+        	@keyframes popuptwo {
+        		0% {opacity: 0;font-size: 0px;color: black;}
+        		10%{opacity: 0;}
+        		50%{color: white;}
+        		100% {opacity: 1;font-size: 30px;color: black;}
+        	}
+
+        	
+
+        	#placeholder-1 {
+        		height: 40vh;
+        		color: white;
+        		font-family: Serif;
+        		font-size: 0px;
+        		animation: popuptwo 8s;
+        		animation-delay: 3s;
+        		animation-fill-mode: forwards;
+        		white-space: nowrap;
+        	}
+
+        	#placeholder-2 {
+        		height: 40vh;
+        	}
+
+        	img {
+        		filter: invert(100);
+        		animation: popupthree 4s;
+        		animation-fill-mode: forwards;
+        		opacity: 0;
+        	}
+
+        	@keyframes popupthree {
+        		0% {opacity: 0;width: 0px;filter: invert(100);}
+        		30%{filter: invert(100);opacity: 0;}
+        		60%{opacity: 1;}
+        		100% {opacity: 0;width: 300px;filter: invert(100);transform: translate(0px,-160px);}
+        	}
+    	</style>
+    </head>
+    <body>
+    	<center>
+    		<div id="placeholder-1">
+    			<div id="placeholder-2"></div>
+    			To Consign To Limbo<br><img src="malachilogo.png">
+    		</div>
+    		<!--
+    		<a href="" id="play-button">BEGIN<a>
+    		-->
+    	</center>
+        <script>
+        setTimeout(game, 12000);
+
+
+        function game() {
+        	window.location.href = "tctlgame.html";
+        }
+
+        </script>
+    </body>
+</html>
